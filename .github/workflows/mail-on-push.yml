@@ -1,0 +1,19 @@
+name: Send Mail on Push
+
+on: [push]
+
+jobs:
+  mail_on_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: "Uus push repositooriumis ${{github.repository}}"
+          to: george.teemus@gmail.com
+          from: "Github actions"
+          body: "Kehtestuse looja: ${{github.event.pusher.name}}\nSõnum: ${{github.event.head_commit.message}}"
