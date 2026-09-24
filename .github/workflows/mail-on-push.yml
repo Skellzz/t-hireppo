@@ -14,6 +14,6 @@ jobs:
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: "Uus push repositooriumis ${{github.repository}}"
-          to: george.teemus@gmail.com
+          to: adolfbee81@gmail.com
           from: "Github actions"
           body: "Kehtestuse looja: ${{github.event.pusher.name}}\nSõnum: ${{github.event.head_commit.message}}"
